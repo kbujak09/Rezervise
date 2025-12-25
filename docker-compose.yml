@@ -2,12 +2,12 @@ services:
   # DATABASE
   db:
     image: postgres:15-alpine
-    container_name: horizon_db
+    container_name: rezervise_db
     restart: always
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password123
-      POSTGRES_DB: horizon_db
+      POSTGRES_DB: rezervise_db
     ports:
       - '5432:5432'
     volumes:
@@ -16,7 +16,7 @@ services:
   # BACKEND
   server:
     build: ./server
-    container_name: horizon_server
+    container_name: rezervise_server
     restart: always
     ports:
       - '3000:3000'
@@ -26,12 +26,12 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://admin:password123@db:5432/horizon_db?schema=public
+      DATABASE_URL: postgresql://admin:password123@db:5432/rezervise_db?schema=public
 
   # FRONTEND
   client:
     build: ./client
-    container_name: horizon_client
+    container_name: rezervise_client
     restart: always
     ports:
       - '5173:5173'
