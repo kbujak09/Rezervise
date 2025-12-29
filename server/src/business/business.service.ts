@@ -5,13 +5,16 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class BusinessService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async create(createBusinessDto: CreateBusinessDto) {
     return this.prisma.business.create({
       data: {
-        name: createBusinessDto.name,
-        slug: createBusinessDto.name.toLowerCase().replace(/ /g, '-'),
+        ...createBusinessDto,
+        slug: createBusinessDto.name
+          .toLowerCase()
+          .replace(/ /g, '-')
+          .replace(/[^\w-]+/g, ''),
       },
     });
   }
@@ -21,7 +24,12 @@ export class BusinessService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} business`;
+    return this.prisma.business.findUnique({
+      where: { id },
+      include: {
+        services: true
+      }
+    });
   }
 
   update(id: number, updateBusinessDto: UpdateBusinessDto) {

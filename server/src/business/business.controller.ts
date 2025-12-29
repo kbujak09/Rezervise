@@ -5,7 +5,7 @@ import { UpdateBusinessDto } from './dto/update-business.dto';
 
 @Controller('business')
 export class BusinessController {
-  constructor(private readonly businessService: BusinessService) {}
+  constructor(private readonly businessService: BusinessService) { }
 
   @Post()
   create(@Body() createBusinessDto: CreateBusinessDto) {

@@ -4,5 +4,64 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+model Business {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  address     String
+  city        String
+  phone       String?
+  email       String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  services     Service[]
+  workingHours WorkingHours[]
+  appointments Appointment[]
+}
+
+model Service {
+  id       Int    @id @default(autoincrement())
+  name     String
+  price    Float
+  duration Int
+
+  businessId   Int
+  business     Business      @relation(fields: [businessId], references: [id])
+  appointments Appointment[]
+}
+
+model WorkingHours {
+  id        Int    @id @default(autoincrement())
+  dayOfWeek Int
+  startTime String
+  endTime   String
+
+  businessId Int
+  business   Business @relation(fields: [businessId], references: [id])
+}
+
+model Appointment {
+  id     String   @id @default(uuid())
+  start  DateTime
+  end    DateTime
+  status String   @default("CONFIRMED") // CONFIRMED, CANCELLED, DONE
+
+  clientName  String
+  clientEmail String?
+  clientPhone String?
+
+  businessId Int
+  business   Business @relation(fields: [businessId], references: [id])
+
+  serviceId Int
+  service   Service @relation(fields: [serviceId], references: [id])
+
+  createdAt DateTime @default(now())
 }
