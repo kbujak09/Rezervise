@@ -7,8 +7,13 @@ import { WorkingHoursModule } from './working-hours/working-hours.module';
 import { AppointmentModule } from './appointment/appointment.module';
 
 @Module({
-  imports: [BusinessModule, ServiceModule, WorkingHoursModule, AppointmentModule],
+  imports: [
+    BusinessModule,
+    ServiceModule,
+    WorkingHoursModule,
+    AppointmentModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
