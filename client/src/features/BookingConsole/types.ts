@@ -11,3 +11,11 @@ export interface BusinessInterface {
   createdAt?: Date,
   updatedAt?: Date 
 };
+
+export interface ServiceInterface {
+  id: number,
+  name: string,
+  price: number,
+  duration: number,
+  businessId: number
+}
