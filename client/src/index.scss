@@ -5,3 +5,9 @@ a {
   text-decoration: 1px solid rgb(150, 150, 150) underline;
   color: inherit;
 }
+body, html {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  color: white;
+}

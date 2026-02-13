@@ -4,7 +4,9 @@
   gap: 4px;
 }
 .name {
+  font-size: 24px;
   font-weight: 700;
+  color: goldenrod;
 }
 .description {
   opacity: 0.75;
@@ -16,4 +18,15 @@
 }
 .contact {
   opacity: 0.8;
+}
+.image > img {
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+.text {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
