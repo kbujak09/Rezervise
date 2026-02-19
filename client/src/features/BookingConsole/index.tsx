@@ -15,7 +15,7 @@ export default function BookingConsole() {
   return (
     <div className={styles.container}>
       <BusinessInfo business={businessInfo}/>
-      <Services services={services}/>
+      <Services services={services} categories={businessInfo.categoryOrder}/>
     </div>
   )
 }

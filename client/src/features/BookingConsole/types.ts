@@ -8,6 +8,7 @@ export interface BusinessInterface {
   phone: string,
   email: string,
   imageUrl?: string,
+  categoryOrder: string[],
   createdAt?: Date,
   updatedAt?: Date 
 };
@@ -17,5 +18,6 @@ export interface ServiceInterface {
   name: string,
   price: number,
   duration: number,
-  businessId: number
+  businessId: number,
+  category: string
 }

@@ -13,7 +13,7 @@ export default function ServiceCard({service}: ServiceCardProps) {
         {service.name}
       </div>
       <div className={styles.price}>
-        {`${service.price} zł`}
+        {`${service.price} PLN`}
       </div>
     </div>
   )
