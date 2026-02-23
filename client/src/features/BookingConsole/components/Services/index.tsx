@@ -8,10 +8,11 @@ import styles from './index.module.scss';
 
 interface ServicesProps {
   services: ServiceInterface[],
-  categories: string[]
+  categories: string[],
+  selectService: (service: string) => void,
 }
   
-export default function Services({ services, categories }: ServicesProps) {
+export default function Services({ services, categories, selectService }: ServicesProps) {
 
   const groupedServices = useMemo(() => {
     return groupServices({ categories, services });
@@ -29,6 +30,7 @@ export default function Services({ services, categories }: ServicesProps) {
                   <ServiceCard
                     key={service.id}
                     service={service}
+                    selectService={selectService}
                   />
                 ))
               }
