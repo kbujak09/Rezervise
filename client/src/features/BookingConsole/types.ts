@@ -21,3 +21,24 @@ export interface ServiceInterface {
   businessId: number,
   category: string
 }
+
+export interface DayScheduleInterface {
+  id: number,
+  dayOfWeek: number,
+  startTime: string,
+  endTime: string,
+}
+
+export interface AppointmentInterface {
+  id: string,
+  start: Date,
+  end: Date,
+  status: "CONFIRMED" | "CANCELLED" | "DONE",
+  clientName: string,
+  clientPhone: string,
+  clientEmail: string | null,
+  serviceId: number,
+  service: ServiceInterface,
+  businessId: number,
+  createdAt: Date,
+}

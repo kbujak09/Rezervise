@@ -1,3 +1,5 @@
+import type { AppointmentInterface } from './types';
+
 import { addDays, subDays, setHours, setMinutes } from 'date-fns';
 
 const today = new Date();
@@ -77,7 +79,7 @@ export const MOCK_WORKING_HOURS = [
   { id: 6, dayOfWeek: 6, startTime: "10:00", endTime: "14:00", businessId: 1 },
 ];
 
-export const MOCK_APPOINTMENTS = [
+export const MOCK_APPOINTMENTS: AppointmentInterface[] = [
   {
     id: "uuid-history-1",
     start: setMinutes(setHours(subDays(today, 1), 10), 0),
