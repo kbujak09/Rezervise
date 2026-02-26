@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BusinessInfo from './components/BusinessInfo/index'
 import Services from './components/Services';
 import Calendar from './components/Calendar';
+import type { ServiceInterface } from './types';
 
 import { MOCK_BUSINESS, MOCK_SERVICES, MOCK_WORKING_HOURS, MOCK_APPOINTMENTS } from './mocks';
 
@@ -15,9 +16,9 @@ export default function BookingConsole() {
   const [workingHours, setWorkingHours] = useState(MOCK_WORKING_HOURS);
   const [appointments, setAppointments] = useState(MOCK_APPOINTMENTS);
 
-  const [chosenService, setChosenService] = useState<null|string>(null);
+  const [chosenService, setChosenService] = useState<ServiceInterface>();
 
-  const selectService = (service: string) => {
+  const selectService = (service: ServiceInterface) => {
     setChosenService(service);
   }
 
@@ -35,6 +36,7 @@ export default function BookingConsole() {
           <Calendar 
             workingHours={workingHours}
             appointments={appointments}
+            chosenService={chosenService}
           />
         )
       }

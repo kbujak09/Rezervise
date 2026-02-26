@@ -1,14 +1,15 @@
-import type { AppointmentInterface, DayScheduleInterface } from '../../types';
+import type { AppointmentInterface, DayScheduleInterface, ServiceInterface } from '../../types';
 
 import styles from './index.module.scss';
 
 interface CalendarProps {
   workingHours: DayScheduleInterface[],
   appointments: AppointmentInterface[],
+  chosenService: ServiceInterface,
 }
 
-export default function Calendar({workingHours, appointments}: CalendarProps) {
-  console.log(workingHours, appointments);
+export default function Calendar({workingHours, appointments, chosenService}: CalendarProps) {
+  console.log(workingHours, appointments, chosenService);
   return (
     <div className={styles.container}>
       calendar

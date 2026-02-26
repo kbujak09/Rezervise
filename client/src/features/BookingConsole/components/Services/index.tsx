@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 interface ServicesProps {
   services: ServiceInterface[],
   categories: string[],
-  selectService: (service: string) => void,
+  selectService: (service: ServiceInterface) => void,
 }
   
 export default function Services({ services, categories, selectService }: ServicesProps) {

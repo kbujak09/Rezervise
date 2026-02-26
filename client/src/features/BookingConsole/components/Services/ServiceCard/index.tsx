@@ -4,12 +4,12 @@ import styles from './index.module.scss';
 
 interface ServiceCardProps {
   service: ServiceInterface,
-  selectService: (service: string) => void,
+  selectService: (service: ServiceInterface) => void,
 }
 
 export default function ServiceCard({ service, selectService }: ServiceCardProps) {
   return (
-    <div className={styles.container} onClick={() => selectService(service.name)}>
+    <div className={styles.container} onClick={() => selectService(service)}>
       <div className={styles.name}>
         {service.name}
       </div>
