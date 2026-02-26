@@ -1,6 +1,16 @@
 .container {
   display: grid;
+  margin: 16px;
+  gap: 16px;
+}
+.categoryItems {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 12px;
-  gap: 12px;
+  gap: 16px;
+}
+.categoryTitle {
+  font-style: italic;
+  opacity: 0.85;
+  text-align: center;
+  margin-bottom: 24px;
 }
