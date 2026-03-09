@@ -9,6 +9,7 @@ interface CalendarProps {
 }
 
 export default function Calendar({workingHours, appointments, chosenService}: CalendarProps) {
+<<<<<<< HEAD
 
   console.log(workingHours, appointments, chosenService);
 
@@ -16,6 +17,9 @@ export default function Calendar({workingHours, appointments, chosenService}: Ca
 
   console.log(today);
 
+=======
+  console.log(workingHours, appointments, chosenService);
+>>>>>>> 8f06f406b8ff30ececbc6c1cb3f489e4cb6ac5d8
   return (
     <div className={styles.container}>
       calendar
