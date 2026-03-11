@@ -43,7 +43,7 @@ model Service {
   appointments Appointment[]
 }
 
-model WorkingHours {
+model WorkingHour {
   id        Int    @id @default(autoincrement())
   dayOfWeek Int
   startTime String
@@ -70,4 +70,4 @@ model Appointment {
   service   Service @relation(fields: [serviceId], references: [id])
 
   createdAt DateTime @default(now())
-}
+}   
