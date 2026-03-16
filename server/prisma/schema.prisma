@@ -27,7 +27,7 @@ model Business {
   updatedAt   DateTime @updatedAt
 
   services     Service[]
-  workingHours WorkingHours[]
+  schedules Schedule[]
   appointments Appointment[]
 }
 
@@ -43,7 +43,7 @@ model Service {
   appointments Appointment[]
 }
 
-model WorkingHour {
+model Schedule {
   id        Int    @id @default(autoincrement())
   dayOfWeek Int
   startTime String

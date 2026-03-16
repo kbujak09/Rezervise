@@ -1,6 +1,7 @@
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
+import router from './routes/api.routes';
 
 const app = express();
 const prisma = new PrismaClient();
@@ -16,3 +17,5 @@ app.get('/', (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log('Server working!');
 })
+
+app.use('/api', router);
