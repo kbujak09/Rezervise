@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
 import type { ServiceInterface } from '../../types';
-import ServiceCard from './ServiceCard';
+import ServiceCard from './ServiceCard/index';
 import { groupServices } from '../../../../utils/Services/helpers';
 
-import styles from './index.module.scss';
+import styles from './Services.module.scss';
 
 interface ServicesProps {
   services: ServiceInterface[],

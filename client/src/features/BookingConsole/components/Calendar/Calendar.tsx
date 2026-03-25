@@ -1,6 +1,6 @@
 import type { AppointmentInterface, DayScheduleInterface, ServiceInterface } from '../../types';
 
-import styles from './index.module.scss';
+import styles from './Calendar.module.scss';
 
 interface CalendarProps {
   workingHours: DayScheduleInterface[],

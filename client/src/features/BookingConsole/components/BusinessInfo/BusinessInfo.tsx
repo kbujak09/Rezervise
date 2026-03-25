@@ -1,6 +1,6 @@
 import type { BusinessInterface } from '../../types';
 
-import styles from './index.module.scss';
+import styles from './BusinessInfo.module.scss';
 
 interface BusinessInfoProps {
   business: BusinessInterface;

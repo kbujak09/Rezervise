@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import BusinessInfo from './components/BusinessInfo/index'
+import BusinessInfo from './components/BusinessInfo'
 import Services from './components/Services';
 import Calendar from './components/Calendar';
 import type { ServiceInterface } from './types';
 
 import { MOCK_BUSINESS, MOCK_SERVICES, MOCK_WORKING_HOURS, MOCK_APPOINTMENTS } from './mocks';
 
-import styles from './index.module.scss';
+import styles from './BookingConsole.module.scss';
 
 export default function BookingConsole() {
 
