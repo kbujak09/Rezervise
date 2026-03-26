@@ -7,8 +7,8 @@ import './index.scss';
 function App() {
   return (
     <div>
-      {/* <LandingPage /> */}
-      <BookingConsole business={MOCK_BUSINESS}/>
+      <LandingPage />
+      {/* <BookingConsole business={MOCK_BUSINESS}/> */}
     </div>
   )
 }

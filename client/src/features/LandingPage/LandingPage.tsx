@@ -1,11 +1,14 @@
+import Hero from './components/Hero';
+
 import styles from './LandingPage.module.scss';
 
 export default function LandingPage() {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        Landing Page
-      </header>
+      <Hero
+        title='REZERVISE'
+        subtitle='Szybkie i łatwe rezerwacje' 
+      />
     </div>
   )
 }

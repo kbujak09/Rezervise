@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  gap: 16px;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
