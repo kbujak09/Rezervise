@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import NavbarMobile from './Navbar';
 
 import styles from './Hero.module.scss';
 
@@ -16,7 +16,7 @@ export default function Hero({title, subtitle}: HeroInterface) {
       <div className={styles.subtitle}>
         {subtitle}
       </div>
-      <Navbar />
+      <NavbarMobile />
     </header>
   )
 }
