@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import NavbarMobile from './Navbar';
+import SearchMenuMobile from './SearchMenuMobile';
 
 import styles from './Hero.module.scss';
 
@@ -8,15 +11,22 @@ interface HeroInterface {
 }
 
 export default function Hero({title, subtitle}: HeroInterface) {
+  const [openElement, setOpenElement] = useState<'search'|'menu'|''>('');
+  
   return (
-    <header className={styles.container}>
-      <div className={styles.title}>
-        {title}
-      </div>
-      <div className={styles.subtitle}>
-        {subtitle}
-      </div>
-      <NavbarMobile />
-    </header>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.title}>
+          {title}
+        </div>
+        <div className={styles.subtitle}>
+          {subtitle}
+        </div>
+        <NavbarMobile setOpenElement={setOpenElement}/>
+      </header>
+      {
+        openElement === 'search' ? <SearchMenuMobile closeMenu={() => setOpenElement('')} /> : null
+      }
+    </div>
   )
 }

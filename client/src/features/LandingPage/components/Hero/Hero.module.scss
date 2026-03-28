@@ -2,7 +2,7 @@
   font-family: 'Source Sans 3', 'Roboto', sans-serif;
 }
 .title {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   margin-bottom: 4px;
   letter-spacing: 1.1px;
@@ -10,7 +10,8 @@
 .subtitle {
   color: rgb(186, 143, 35);
   letter-spacing: 0.7px;
+  font-size: 18px;
 }
-.container {
+.header, .container {
   position: relative;
 }
