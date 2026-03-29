@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import NavbarMobile from './Navbar';
-import SearchMenuMobile from './SearchMenuMobile';
+import SearchBarMobile from './SearchBarMobile';
 
 import styles from './Hero.module.scss';
 
@@ -25,7 +25,7 @@ export default function Hero({title, subtitle}: HeroInterface) {
         <NavbarMobile setOpenElement={setOpenElement}/>
       </header>
       {
-        openElement === 'search' ? <SearchMenuMobile closeMenu={() => setOpenElement('')} /> : null
+        openElement === 'search' ? <SearchBarMobile closeMenu={() => setOpenElement('')} /> : null
       }
     </div>
   )
