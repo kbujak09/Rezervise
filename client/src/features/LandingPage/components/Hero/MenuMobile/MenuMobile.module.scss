@@ -1,0 +1,13 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(119, 119, 119, 0.538);
+  transform: translateX(100dvw);
+  transition: transform 0.3s ease-in;
+}
+.open {
+  transform: translateX(0);
+}
