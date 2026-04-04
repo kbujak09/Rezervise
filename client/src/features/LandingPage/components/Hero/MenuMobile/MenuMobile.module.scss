@@ -4,10 +4,30 @@
   left: 0;
   width: 100dvw;
   height: 100dvh;
-  background-color: rgba(119, 119, 119, 0.538);
+  background-color: black;
   transform: translateX(100dvw);
   transition: transform 0.3s ease-in;
 }
 .open {
   transform: translateX(0);
+}
+.header {
+  position: relative;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1.1px;  
+}
+.logo, .closeButton {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-family: 'Source Sans 3', 'Roboto', sans-serif;
+}
+.closeButton {
+  width: 28px;
 }
