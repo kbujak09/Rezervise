@@ -7,27 +7,55 @@
   background-color: black;
   transform: translateX(100dvw);
   transition: transform 0.3s ease-in;
+  border-left: 1px solid rgba(218, 165, 32, 0.2);
+  border-right: 1px solid rgba(218, 165, 32, 0.2);
+  box-sizing: border-box;
 }
 .open {
   transform: translateX(0);
 }
 .header {
-  position: relative;
-  padding: 16px;
+  padding: 12px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
-  letter-spacing: 1.1px;  
-}
-.logo, .closeButton {
-  display: flex;
-  align-items: center;
+  letter-spacing: 1.1px;
+  margin-bottom: 48px;  
 }
 .logo {
   font-family: 'Source Sans 3', 'Roboto', sans-serif;
 }
 .closeButton {
   width: 28px;
+  justify-self: flex-end;
+}
+.menu {
+  text-align: center;
+}
+.menuElement {
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+  padding: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 24px;
+}
+.loginElement, .logout {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(51, 166, 255);
+  letter-spacing: 0.5px;
+}
+.logout {
+  padding: 24px;
+  font-size: 18px;
+  color: rgb(255, 76, 76);
 }
