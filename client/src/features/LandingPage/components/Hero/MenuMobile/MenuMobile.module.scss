@@ -22,7 +22,7 @@
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 1.1px;
-  margin-bottom: 48px;  
+  margin-bottom: 72px;  
 }
 .logo {
   font-family: 'Source Sans 3', 'Roboto', sans-serif;
@@ -40,22 +40,21 @@
   border-bottom: 1px solid rgba(218, 165, 32, 0.2);
   padding: 24px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 .login {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 24px;
 }
 .loginElement, .logout {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
   color: rgb(51, 166, 255);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  padding: 36px 0;
 }
 .logout {
-  padding: 24px;
   font-size: 18px;
   color: rgb(255, 76, 76);
 }
