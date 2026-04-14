@@ -21,8 +21,8 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./server:/app:z
-      - /app/node_modules
+      - ./server:/src:z
+      - /src/node_modules
     depends_on:
       - db
     environment:
@@ -36,8 +36,8 @@ services:
     ports:
       - '5173:5173'
     volumes:
-      - ./client:/app:z
-      - /app/node_modules
+      - ./client:/src:z
+      - /src/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
 

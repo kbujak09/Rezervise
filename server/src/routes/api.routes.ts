@@ -1,9 +1,12 @@
 import { Router } from 'express';
 
-import { createBusiness } from '../controllers/business.controller';
+import * as businessController from '../controllers/business.controller';
+import * as appointmentController from '../controllers/appointment.controller';
 
 const router = Router();
 
-router.get('/business', createBusiness);
+router.post('/business', businessController.createBusiness);
+
+router.get('/availability', appointmentController.getAvailableSlots);
 
 export default router;
