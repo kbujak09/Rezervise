@@ -30,3 +30,20 @@
   flex-direction: column;
   gap: 8px;
 }
+.topBar {
+  padding: 20px 12px;
+  display: flex;
+  align-items: center;
+}
+.backBtn {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  height: 24px;
+  box-sizing: border-box;
+}
+.backBtn:focus {
+  outline: 0;
+}

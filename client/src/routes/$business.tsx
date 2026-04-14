@@ -13,10 +13,6 @@ function BusinessPage() {
 
   const data = MOCK_BUSINESS;
 
-  if(business === 'test') {
-    return <div>wtf</div>
-  }
-
   return (
     <>
       <BookingConsole business={data}/>
