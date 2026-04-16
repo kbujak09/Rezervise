@@ -34,8 +34,6 @@ export default function BookingConsole({business}: {business: BusinessInterface}
           />
         ) : (
           <Calendar 
-            workingHours={workingHours}
-            appointments={appointments}
             chosenService={chosenService}
           />
         )
