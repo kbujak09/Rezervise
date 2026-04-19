@@ -44,13 +44,14 @@ model Service {
 }
 
 model Schedule {
-  id        Int    @id @default(autoincrement())
   dayOfWeek Int
   startTime String
   endTime   String
 
   businessId Int
   business   Business @relation(fields: [businessId], references: [id])
+
+  @@id([businessId, dayOfWeek])
 }
 
 model Appointment {

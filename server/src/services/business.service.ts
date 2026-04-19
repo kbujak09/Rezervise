@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -28,6 +28,26 @@ export const createNewBusiness = async (data: any) => {
     return business;
 }
 
+export const fetchBusinessById = async (businessId: number) => {
+  if (!businessId) {
+    throw new Error('INVALID_ID');
+  }
+
+  const business = await prisma.business.findUnique({ where: { id: businessId } });
+
+  if (!business) {
+    throw new Error('NOT_FOUND');
+  }
+
+  return business;
+}
+
+export const fetchAllBusinesses = async () => {
+  const allBusinesses = await prisma.business.findMany({ include: { appointments: true }});
+
+  return allBusinesses;
+}
+
 export const fetchBusinessBySlug = async (slug: string) => {
   if (!slug) {
     throw new Error('INVALID_SLUG');
@@ -44,4 +64,6 @@ export const fetchBusinessBySlug = async (slug: string) => {
   if (!business) {
     throw new Error('NOT_FOUND');
   }
+
+  return business;
 }

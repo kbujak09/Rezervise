@@ -1,7 +1,9 @@
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
-import router from './routes/api.routes';
+
+import businessRouter from './routes/business.routes';
+import appointmentRouter from './routes/appointment.routes';
 
 const app = express();
 const prisma = new PrismaClient();
@@ -14,8 +16,9 @@ app.get('/', (req: Request, res: Response) => {
   res.json({ status: 'ok', message: 'OK' });
 });
 
+app.use('/api/businesses', businessRouter);
+app.use('/api/appointments', appointmentRouter);
+
 app.listen(PORT, () => {
   console.log('Server working!');
 })
-
-app.use('/api', router);
