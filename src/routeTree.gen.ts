@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PanelRouteImport } from './routes/panel'
 import { Route as LoginRouteImport } from './routes/login'
 
+const PanelRoute = PanelRouteImport.update({
+  id: '/panel',
+  path: '/panel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -19,28 +25,39 @@ const LoginRoute = LoginRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
+  '/panel': typeof PanelRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
+  '/panel': typeof PanelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/login': typeof LoginRoute
+  '/panel': typeof PanelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/login'
+  fullPaths: '/login' | '/panel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login'
-  id: '__root__' | '/login'
+  to: '/login' | '/panel'
+  id: '__root__' | '/login' | '/panel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
+  PanelRoute: typeof PanelRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/panel': {
+      id: '/panel'
+      path: '/panel'
+      fullPath: '/panel'
+      preLoaderRoute: typeof PanelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
+  PanelRoute: PanelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

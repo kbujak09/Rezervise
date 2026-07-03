@@ -14,7 +14,7 @@ export default function Input ({ label, type, value, onChange }: InputProps) {
     <div className='flex flex-col gap-2.5 box-border'>
       <label
         htmlFor={uniqueId}
-        className='mx-7.5 font-light text-[1.125rem] text-slate-900'
+        className='mx-7.5 font-light sm:font-medium text-[1.125rem] text-slate-900'
       >
         {label}
       </label>

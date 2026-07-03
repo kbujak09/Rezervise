@@ -1,21 +1,43 @@
 import {useState} from "react";
+import { useNavigate, useRouter } from "@tanstack/react-router";
+
 import Input from "./Input.tsx";
+import { useAuth } from "../hooks/useAuth.ts";
 
 export default function AuthForm() {
-  const [username, setUsername] = useState<string>('');
+  const navigate = useNavigate();
+  const router = useRouter();
+
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const { login, isLoading, error } = useAuth();
+
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    if (!email || !password) return;
+
+    const result = await login(email, password);
+
+    if (result.success) {
+      console.log('Sukces!');
+      await router.invalidate();
+      await navigate({ to: '/panel' });
+    }
+  }
+
   return (
-    <div className='w-full max-w-120 sm:px-10 sm:py-15 sm:shadow-[0_8px_24px_rgba(0,0,0,0.15)] sm:border sm:border-[#eaeaea]'>
+    <div className='w-full max-w-120 bg-white sm:px-10 sm:py-15 sm:shadow-[0_0_16px_rgba(0,0,0,0.15)] sm:border sm:border-[#eaeaea] sm:rounded-sm'>
       <h2 className='text-center mb-14 text-xl sm:text-2xl text-slate-900'>
         Zaloguj się do panelu zarządzania
       </h2>
-      <form className='grid gap-10'>
+      <form className='grid gap-10' onSubmit={handleSubmit}>
         <Input
-          label='Login'
+          label='Email'
           type='text'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           label='Hasło'
