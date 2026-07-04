@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import { routeTree } from './routeTree.gen';
 import { supabase } from "./lib/supabase.ts";
+import Loading from './components/Loading.tsx';
 
 const router = createRouter({ routeTree, context: { isAuthenticated: false } });
 
@@ -43,7 +44,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Loading/>
   }
 
   return (
