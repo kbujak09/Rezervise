@@ -28,8 +28,8 @@ export default function AuthForm() {
   }
 
   return (
-    <div className='w-full max-w-120 bg-white sm:px-10 sm:py-15 sm:shadow-[0_0_16px_rgba(0,0,0,0.15)] sm:border sm:border-[#eaeaea] sm:rounded-sm'>
-      <h2 className='text-center mb-14 text-xl sm:text-2xl text-slate-900'>
+    <div className='w-full max-w-120 bg-white sm:p-15 sm:shadow-[0_0_16px_rgba(0,0,0,0.15)] sm:border sm:border-[#eaeaea] sm:rounded-sm'>
+      <h2 className='text-center mb-14 text-xl sm:text-l text-slate-900'>
         Zaloguj się do panelu zarządzania
       </h2>
       <form className='grid gap-10' onSubmit={handleSubmit}>
@@ -45,7 +45,7 @@ export default function AuthForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className='bg-slate-900 text-white mt-4 py-3 px-10 rounded-[5px] mx-5 text-[1.125rem] cursor-pointer'>
+        <button className='bg-slate-900 text-white! mt-4 py-3 px-10 rounded-[5px] mx-5 text-[1.125rem] cursor-pointer'>
           Zaloguj
         </button>
       </form>

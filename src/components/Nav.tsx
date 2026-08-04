@@ -9,6 +9,10 @@ import settingsIcon from '../assets/Nav/settings_icon.svg';
 import NavItem from "./NavItem.tsx";
 
 export default function Nav() {
+  for (const [key, value] of Object.entries(localStorage)) {
+    console.log(`${key}: ${value}`);
+  }
+
   return (
     <div className='w-lg bg-white h-dvh relative px-4 py-2 shadow-md flex flex-col'>
       <div className='flex justify-end pb-12 pt-4'>

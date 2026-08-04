@@ -14,7 +14,7 @@ export const Route = createFileRoute('/login')({
 
 function LoginPage() {
   return (
-    <div className='h-dvh flex justify-center items-center sm:bg-slate-600'>
+    <div className='h-dvh flex justify-center items-center'>
       <AuthForm/>
     </div>
   )

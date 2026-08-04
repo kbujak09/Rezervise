@@ -1,5 +1,3 @@
-import defaultImage from '../assets/Nav/default_user.png';
-
 export default function Header() {
   return (
     <div className='py-4 px-6 w-full gap-6 text-[#011627] self-baseline'>
