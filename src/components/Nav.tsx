@@ -22,7 +22,7 @@ export default function Nav() {
       ${isOpen ? 'w-lg' : 'w-18' }
       `}
     >
-      <div className={`pb-12 pt-4 w-full flex justify-center`}>
+      <div className={`pb-12 pt-6 w-full flex justify-center`}>
         <div
           className={`${isOpen ? 'w-full': 'w-0 transition-all duration-300'}`}
         ></div>
@@ -36,25 +36,27 @@ export default function Nav() {
       </div>
 
       <div className='flex flex-col justify-between flex-1 py-4'>
-        <div id='nav'>
-          <NavItem iconUrl={calendarIcon} text='Kalendarz'/>
-          <NavItem iconUrl={servicesIcon} text='Usługi'/>
-          <NavItem iconUrl={settingsIcon} text='Ustawienia'/>
+        <div id='nav' className={'flex flex-col w-full justify-center overflow-hidden px-5'}>
+          <NavItem iconUrl={calendarIcon} text='Kalendarz' isOpen={isOpen}/>
+          <NavItem iconUrl={servicesIcon} text='Usługi' isOpen={isOpen}/>
+          <NavItem iconUrl={settingsIcon} text='Ustawienia' isOpen={isOpen}/>
         </div>
 
-        <div className={`flex gap-4 items-center font-medium w-full ${isOpen ? 'px-6 py-3' : 'px-1 py-3'}`}>
+        <div className={'flex items-center font-medium w-full py-3 px-4'}>
           <img
             alt='zdjęcie profilowe'
             src={defaultImage}
-            className='w-9 rounded-full filter-(--main-svg-filter)'
+            className='w-9 shrink-0 rounded-full filter-(--main-svg-filter)'
           />
-          <div className={`${!isOpen && 'hidden'}`}>
-            { user.email }
+          <div className={`flex items-center overflow-hidden transition-all duration-300 
+               ${isOpen ? 'w-full gap-4 ml-4 opacity-100' : 'w-0 ml-0 opacity-0'}`}>
+            <div>
+              { user.email }
+            </div>
+            <button className={`${!isOpen && 'hidden'} ml-auto shrink-0 pl-2`}>
+              <img src={threeDots} alt='menu' className='filter-(--main-svg-filter)'/>
+            </button>
           </div>
-          <button className={`${!isOpen && 'hidden'} ml-auto`}>
-            <img src={threeDots} alt='menu' className='filter-(--main-svg-filter)'/>
-          </button>
-          <div className={`${isOpen ? 'w-0' : 'w-full flex-1'}`}></div>
         </div>
       </div>
     </div>
