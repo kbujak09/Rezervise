@@ -18,6 +18,7 @@ export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const threeDotsRef = useRef<HTMLButtonElement>(null);
 
   const { user } = useUser();
 
@@ -30,7 +31,7 @@ export default function Nav() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node) && threeDotsRef.current && !threeDotsRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
       }
     };
@@ -65,23 +66,23 @@ export default function Nav() {
 
       <div className='flex flex-col justify-between flex-1 py-4'>
         <div id='nav' className={'flex flex-col w-full justify-center overflow-hidden px-5'}>
-          <NavItem iconUrl={calendarIcon} text='Kalendarz' isOpen={isOpen}/>
-          <NavItem iconUrl={servicesIcon} text='Usługi' isOpen={isOpen}/>
-          <NavItem iconUrl={settingsIcon} text='Ustawienia' isOpen={isOpen}/>
+          <NavItem iconUrl={calendarIcon} text='Kalendarz' navigateUrl={'/panel/calendar'} isNavOpen={isOpen}/>
+          <NavItem iconUrl={servicesIcon} text='Usługi' navigateUrl={'/panel/services'} isNavOpen={isOpen}/>
+          <NavItem iconUrl={settingsIcon} text='Ustawienia' navigateUrl={'/panel/settings'} isNavOpen={isOpen}/>
         </div>
 
         <div className='flex items-center font-medium w-full py-3 px-4 relative'>
           <img
             alt='zdjęcie profilowe'
             src={defaultImage}
-            className='w-9 shrink-0 rounded-full filter-(--main-svg-filter) cursor-pointer'
+            className='w-10 shrink-0 rounded-full filter-(--main-svg-filter) cursor-pointer'
           />
           <div className={`flex items-center overflow-hidden transition-all duration-300
                ${isOpen ? 'w-full gap-4 ml-4 opacity-100' : 'w-0 ml-0 opacity-0'}`}>
             <div className='cursor-pointer'>
               { user.email }
             </div>
-            <button className={`${!isOpen && 'hidden'} ml-auto shrink-0 pl-2`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className={`${!isOpen && 'hidden'} ml-auto shrink-0 pl-2`} ref={threeDotsRef} onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <img src={threeDots} alt='menu' className='filter-(--main-svg-filter) cursor-pointer'/>
             </button>
           </div>
@@ -90,7 +91,7 @@ export default function Nav() {
               <div
                 ref={menuRef}
                 onClick={logout}
-                className={`absolute right-3 font-bold -top-9 border-gray-450 text-sm border box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
+                className={`absolute right-3 font-[600] -top-9 border-gray-450 text-sm border box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
                 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}
               >
                 WYLOGUJ

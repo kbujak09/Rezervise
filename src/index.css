@@ -5,6 +5,7 @@
     font-family: 'Open Sans', sans-serif;
     color: #606060;
     --main-svg-filter: brightness(0) saturate(100%) invert(35%) sepia(0%) saturate(0%) hue-rotate(61deg) brightness(101%) contrast(84%);
+    --active-svg-filter: brightness(0) saturate(100%) invert(23%) sepia(100%) saturate(7490%) hue-rotate(272deg) brightness(93%) contrast(126%);
 }
 
 body {
