@@ -9,18 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PanelRouteImport } from './routes/panel'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PanelSettingsRouteImport } from './routes/panel/settings'
 import { Route as PanelServicesRouteImport } from './routes/panel/services'
+import { Route as PanelProfileRouteImport } from './routes/panel/profile'
 import { Route as PanelCalendarRouteImport } from './routes/panel/calendar'
 
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PanelRoute = PanelRouteImport.update({
   id: '/panel',
   path: '/panel',
@@ -41,6 +36,11 @@ const PanelServicesRoute = PanelServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelProfileRoute = PanelProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PanelRoute,
+} as any)
 const PanelCalendarRoute = PanelCalendarRouteImport.update({
   id: '/calendar',
   path: '/calendar',
@@ -50,16 +50,16 @@ const PanelCalendarRoute = PanelCalendarRouteImport.update({
 export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/panel': typeof PanelRouteWithChildren
-  '/profile': typeof ProfileRoute
   '/panel/calendar': typeof PanelCalendarRoute
+  '/panel/profile': typeof PanelProfileRoute
   '/panel/services': typeof PanelServicesRoute
   '/panel/settings': typeof PanelSettingsRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/panel': typeof PanelRouteWithChildren
-  '/profile': typeof ProfileRoute
   '/panel/calendar': typeof PanelCalendarRoute
+  '/panel/profile': typeof PanelProfileRoute
   '/panel/services': typeof PanelServicesRoute
   '/panel/settings': typeof PanelSettingsRoute
 }
@@ -67,8 +67,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/login': typeof LoginRoute
   '/panel': typeof PanelRouteWithChildren
-  '/profile': typeof ProfileRoute
   '/panel/calendar': typeof PanelCalendarRoute
+  '/panel/profile': typeof PanelProfileRoute
   '/panel/services': typeof PanelServicesRoute
   '/panel/settings': typeof PanelSettingsRoute
 }
@@ -77,24 +77,24 @@ export interface FileRouteTypes {
   fullPaths:
     | '/login'
     | '/panel'
-    | '/profile'
     | '/panel/calendar'
+    | '/panel/profile'
     | '/panel/services'
     | '/panel/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
     | '/panel'
-    | '/profile'
     | '/panel/calendar'
+    | '/panel/profile'
     | '/panel/services'
     | '/panel/settings'
   id:
     | '__root__'
     | '/login'
     | '/panel'
-    | '/profile'
     | '/panel/calendar'
+    | '/panel/profile'
     | '/panel/services'
     | '/panel/settings'
   fileRoutesById: FileRoutesById
@@ -102,18 +102,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PanelRoute: typeof PanelRouteWithChildren
-  ProfileRoute: typeof ProfileRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/panel': {
       id: '/panel'
       path: '/panel'
@@ -142,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelServicesRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/profile': {
+      id: '/panel/profile'
+      path: '/profile'
+      fullPath: '/panel/profile'
+      preLoaderRoute: typeof PanelProfileRouteImport
+      parentRoute: typeof PanelRoute
+    }
     '/panel/calendar': {
       id: '/panel/calendar'
       path: '/calendar'
@@ -154,12 +153,14 @@ declare module '@tanstack/react-router' {
 
 interface PanelRouteChildren {
   PanelCalendarRoute: typeof PanelCalendarRoute
+  PanelProfileRoute: typeof PanelProfileRoute
   PanelServicesRoute: typeof PanelServicesRoute
   PanelSettingsRoute: typeof PanelSettingsRoute
 }
 
 const PanelRouteChildren: PanelRouteChildren = {
   PanelCalendarRoute: PanelCalendarRoute,
+  PanelProfileRoute: PanelProfileRoute,
   PanelServicesRoute: PanelServicesRoute,
   PanelSettingsRoute: PanelSettingsRoute,
 }
@@ -169,7 +170,6 @@ const PanelRouteWithChildren = PanelRoute._addFileChildren(PanelRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PanelRoute: PanelRouteWithChildren,
-  ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

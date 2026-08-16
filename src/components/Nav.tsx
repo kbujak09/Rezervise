@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, Link } from "@tanstack/react-router";
+import { ScaleLoader } from "react-spinners";
 
 import defaultImage from '../assets/Nav/avatar-placeholder.png';
 import threeDots from '../assets/Nav/more.svg';
@@ -45,10 +46,10 @@ export default function Nav() {
     }
   }, [isMenuOpen]);
 
-  return user && (
+  return (
     <div
       className={`bg-white h-dvh relative shadow-md flex flex-col overflow-hidden transition-all duration-300
-      ${isOpen ? 'w-sm' : 'w-18' }
+      ${isOpen ? 'w-88' : 'w-18' }
       `}
     >
       <div className={`pb-12 pt-6 w-full flex justify-center`}>
@@ -71,18 +72,29 @@ export default function Nav() {
           <NavItem iconUrl={settingsIcon} text='Ustawienia' navigateUrl={'/panel/settings'} isNavOpen={isOpen}/>
         </div>
 
-        <div className='flex items-center font-medium w-full py-3 px-4 relative'>
-          <img
-            alt='zdjęcie profilowe'
-            src={defaultImage}
-            className='w-10 shrink-0 rounded-full filter-(--main-svg-filter) cursor-pointer'
-          />
-          <div className={`flex items-center overflow-hidden transition-all duration-300
-               ${isOpen ? 'w-full gap-4 ml-4 opacity-100' : 'w-0 ml-0 opacity-0'}`}>
-            <div className='cursor-pointer'>
-              { user.email }
-            </div>
-            <button className={`${!isOpen && 'hidden'} ml-auto shrink-0 pl-2`} ref={threeDotsRef} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className='flex items-center font-medium w-full my-3 px-4 relative'>
+          <Link
+            to={'/panel/profile'}
+            className='shrink-0 box-border border-transparent border rounded-full'
+            activeProps={{
+              className: '!border-(--active-color)'
+            }}
+          >
+            <img
+              alt='zdjęcie profilowe'
+              src={defaultImage}
+              className='w-10 shrink-0 rounded-full filter-(--main-svg-filter) cursor-pointer box-border border-transparent border'
+            />
+          </Link>
+          <div className={`flex h-full overflow-hidden transition-all duration-300
+               ${isOpen ? 'w-full gap-4 opacity-100' : 'w-0 ml-0 opacity-0'}`}>
+            <Link
+              to={'/panel/profile'}
+              className='cursor-pointer h-full flex items-center pl-6'
+            >
+              { user ? user.email : <ScaleLoader height={15} color={'#9807ff'}/> }
+            </Link>
+            <button className={`${!isOpen && 'hidden'} ml-auto shrink-0`} ref={threeDotsRef} onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <img src={threeDots} alt='menu' className='filter-(--main-svg-filter) cursor-pointer'/>
             </button>
           </div>
@@ -91,7 +103,7 @@ export default function Nav() {
               <div
                 ref={menuRef}
                 onClick={logout}
-                className={`absolute right-3 font-[600] -top-9 border-gray-450 text-sm border box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
+                className={`absolute right-3 font-semibold -top-11 text-sm border border-(--main-color) box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
                 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}
               >
                 WYLOGUJ

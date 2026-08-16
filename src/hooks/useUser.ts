@@ -20,7 +20,7 @@ export default function useUser() {
 
     fetchUser()
       .catch(console.error)
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
   }, []);
 
   return { loading, user };

@@ -17,10 +17,10 @@ export default function NavItem({iconUrl, text, navigateUrl, isNavOpen}: NavItem
         className: 'filter-(--main-svg-filter)'
       }}
       activeProps={{
-        className: 'filter-(--active-svg-filter) transition-all scale-101 duration-150'
+        className: 'filter-(--active-svg-filter)'
       }}
     >
-      <img className='w-7 shrink-0' alt='ikona zakładki' src={iconUrl}/>
+      <img className='w-7 shrink-0 ml-0.5' alt='ikona zakładki' src={iconUrl}/>
       <p className={`font-normal text-l transition-all duration-300 ${isNavOpen ? 'opacity-100' : 'opacity-0'}`}>{text}</p>
     </Link>
   )
