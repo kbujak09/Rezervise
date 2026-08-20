@@ -23,7 +23,7 @@ export default function AuthForm() {
     if (result.success) {
       console.log('Sukces!');
       await router.invalidate();
-      await navigate({ to: '/panel' });
+      await navigate({ to: '/panel/kalendarz' });
     }
   }
 

@@ -1,7 +1,7 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
 import AuthForm from '../components/AuthForm.tsx';
 
-export const Route = createFileRoute('/login')({
+export const Route = createFileRoute('/logowanie')({
   beforeLoad: ({ context }) => {
     if (context.isAuthenticated) {
       throw redirect({

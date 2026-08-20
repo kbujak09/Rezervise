@@ -7,7 +7,7 @@ export default function Panel() {
   return (
     <div className='flex bg-[#e9e9e9] w-full'>
       <Nav/>
-      <div className='flex flex-col'>
+      <div className='flex flex-col w-full'>
         <Header/>
         <div className='m-4'>
           <Outlet/>

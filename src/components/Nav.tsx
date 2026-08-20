@@ -15,7 +15,10 @@ import useUser from "../hooks/useUser.ts";
 import { supabase } from "../lib/supabase.ts";
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(() => {
+    const saved = localStorage.getItem('navOpen');
+    return saved !== null ? JSON.parse(saved) : true;
+  });
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -29,6 +32,10 @@ export default function Nav() {
     await supabase.auth.signOut();
     return navigate({ to: '/login' });
   }
+
+  useEffect(() => {
+    localStorage.setItem('navOpen', JSON.stringify(isOpen));
+  }, [isOpen]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -48,7 +55,7 @@ export default function Nav() {
 
   return (
     <div
-      className={`bg-white h-dvh relative shadow-md flex flex-col overflow-hidden transition-all duration-300
+      className={`bg-gray-50 h-dvh relative shadow-md flex flex-col overflow-hidden transition-all duration-300
       ${isOpen ? 'w-88' : 'w-18' }
       `}
     >
@@ -66,15 +73,15 @@ export default function Nav() {
       </div>
 
       <div className='flex flex-col justify-between flex-1 py-4'>
-        <div id='nav' className={'flex flex-col w-full justify-center overflow-hidden px-5'}>
-          <NavItem iconUrl={calendarIcon} text='Kalendarz' navigateUrl={'/panel/calendar'} isNavOpen={isOpen}/>
-          <NavItem iconUrl={servicesIcon} text='Usługi' navigateUrl={'/panel/services'} isNavOpen={isOpen}/>
-          <NavItem iconUrl={settingsIcon} text='Ustawienia' navigateUrl={'/panel/settings'} isNavOpen={isOpen}/>
+        <div id='nav' className={'flex flex-col w-full justify-center overflow-hidden'}>
+          <NavItem iconUrl={calendarIcon} text='Kalendarz' navigateUrl={'/panel/kalendarz'} isNavOpen={isOpen}/>
+          <NavItem iconUrl={servicesIcon} text='Usługi' navigateUrl={'/panel/uslugi'} isNavOpen={isOpen}/>
+          <NavItem iconUrl={settingsIcon} text='Ustawienia' navigateUrl={'/panel/ustawienia'} isNavOpen={isOpen}/>
         </div>
 
         <div className='flex items-center font-medium w-full my-3 px-4 relative'>
           <Link
-            to={'/panel/profile'}
+            to={'/panel/profil'}
             className='shrink-0 box-border border-transparent border rounded-full'
             activeProps={{
               className: '!border-(--active-color)'
@@ -89,8 +96,8 @@ export default function Nav() {
           <div className={`flex h-full overflow-hidden transition-all duration-300
                ${isOpen ? 'w-full gap-4 opacity-100' : 'w-0 ml-0 opacity-0'}`}>
             <Link
-              to={'/panel/profile'}
-              className='cursor-pointer h-full flex items-center pl-6'
+              to={'/panel/profil'}
+              className='cursor-pointer h-full flex items-center pl-6 whitespace-nowrap truncate'
             >
               { user ? user.email : <ScaleLoader height={15} color={'#9807ff'}/> }
             </Link>

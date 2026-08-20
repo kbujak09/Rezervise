@@ -1,6 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/panel/settings')({
+export const Route = createFileRoute('/panel/ustawienia')({
+  staticData: {
+    title: 'Ustawienia',
+    subtitle: 'Panel/Ustawienia'
+  },
   component: RouteComponent,
 })
 

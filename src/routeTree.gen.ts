@@ -10,97 +10,97 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PanelRouteImport } from './routes/panel'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as PanelSettingsRouteImport } from './routes/panel/settings'
-import { Route as PanelServicesRouteImport } from './routes/panel/services'
-import { Route as PanelProfileRouteImport } from './routes/panel/profile'
-import { Route as PanelCalendarRouteImport } from './routes/panel/calendar'
+import { Route as LogowanieRouteImport } from './routes/logowanie'
+import { Route as PanelUstawieniaRouteImport } from './routes/panel/ustawienia'
+import { Route as PanelUslugiRouteImport } from './routes/panel/uslugi'
+import { Route as PanelProfilRouteImport } from './routes/panel/profil'
+import { Route as PanelKalendarzRouteImport } from './routes/panel/kalendarz'
 
 const PanelRoute = PanelRouteImport.update({
   id: '/panel',
   path: '/panel',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+const LogowanieRoute = LogowanieRouteImport.update({
+  id: '/logowanie',
+  path: '/logowanie',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PanelSettingsRoute = PanelSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+const PanelUstawieniaRoute = PanelUstawieniaRouteImport.update({
+  id: '/ustawienia',
+  path: '/ustawienia',
   getParentRoute: () => PanelRoute,
 } as any)
-const PanelServicesRoute = PanelServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const PanelUslugiRoute = PanelUslugiRouteImport.update({
+  id: '/uslugi',
+  path: '/uslugi',
   getParentRoute: () => PanelRoute,
 } as any)
-const PanelProfileRoute = PanelProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const PanelProfilRoute = PanelProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
   getParentRoute: () => PanelRoute,
 } as any)
-const PanelCalendarRoute = PanelCalendarRouteImport.update({
-  id: '/calendar',
-  path: '/calendar',
+const PanelKalendarzRoute = PanelKalendarzRouteImport.update({
+  id: '/kalendarz',
+  path: '/kalendarz',
   getParentRoute: () => PanelRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/login': typeof LoginRoute
+  '/logowanie': typeof LogowanieRoute
   '/panel': typeof PanelRouteWithChildren
-  '/panel/calendar': typeof PanelCalendarRoute
-  '/panel/profile': typeof PanelProfileRoute
-  '/panel/services': typeof PanelServicesRoute
-  '/panel/settings': typeof PanelSettingsRoute
+  '/panel/kalendarz': typeof PanelKalendarzRoute
+  '/panel/profil': typeof PanelProfilRoute
+  '/panel/uslugi': typeof PanelUslugiRoute
+  '/panel/ustawienia': typeof PanelUstawieniaRoute
 }
 export interface FileRoutesByTo {
-  '/login': typeof LoginRoute
+  '/logowanie': typeof LogowanieRoute
   '/panel': typeof PanelRouteWithChildren
-  '/panel/calendar': typeof PanelCalendarRoute
-  '/panel/profile': typeof PanelProfileRoute
-  '/panel/services': typeof PanelServicesRoute
-  '/panel/settings': typeof PanelSettingsRoute
+  '/panel/kalendarz': typeof PanelKalendarzRoute
+  '/panel/profil': typeof PanelProfilRoute
+  '/panel/uslugi': typeof PanelUslugiRoute
+  '/panel/ustawienia': typeof PanelUstawieniaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/login': typeof LoginRoute
+  '/logowanie': typeof LogowanieRoute
   '/panel': typeof PanelRouteWithChildren
-  '/panel/calendar': typeof PanelCalendarRoute
-  '/panel/profile': typeof PanelProfileRoute
-  '/panel/services': typeof PanelServicesRoute
-  '/panel/settings': typeof PanelSettingsRoute
+  '/panel/kalendarz': typeof PanelKalendarzRoute
+  '/panel/profil': typeof PanelProfilRoute
+  '/panel/uslugi': typeof PanelUslugiRoute
+  '/panel/ustawienia': typeof PanelUstawieniaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/login'
+    | '/logowanie'
     | '/panel'
-    | '/panel/calendar'
-    | '/panel/profile'
-    | '/panel/services'
-    | '/panel/settings'
+    | '/panel/kalendarz'
+    | '/panel/profil'
+    | '/panel/uslugi'
+    | '/panel/ustawienia'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/login'
+    | '/logowanie'
     | '/panel'
-    | '/panel/calendar'
-    | '/panel/profile'
-    | '/panel/services'
-    | '/panel/settings'
+    | '/panel/kalendarz'
+    | '/panel/profil'
+    | '/panel/uslugi'
+    | '/panel/ustawienia'
   id:
     | '__root__'
-    | '/login'
+    | '/logowanie'
     | '/panel'
-    | '/panel/calendar'
-    | '/panel/profile'
-    | '/panel/services'
-    | '/panel/settings'
+    | '/panel/kalendarz'
+    | '/panel/profil'
+    | '/panel/uslugi'
+    | '/panel/ustawienia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  LoginRoute: typeof LoginRoute
+  LogowanieRoute: typeof LogowanieRoute
   PanelRoute: typeof PanelRouteWithChildren
 }
 
@@ -113,62 +113,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
+    '/logowanie': {
+      id: '/logowanie'
+      path: '/logowanie'
+      fullPath: '/logowanie'
+      preLoaderRoute: typeof LogowanieRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/panel/settings': {
-      id: '/panel/settings'
-      path: '/settings'
-      fullPath: '/panel/settings'
-      preLoaderRoute: typeof PanelSettingsRouteImport
+    '/panel/ustawienia': {
+      id: '/panel/ustawienia'
+      path: '/ustawienia'
+      fullPath: '/panel/ustawienia'
+      preLoaderRoute: typeof PanelUstawieniaRouteImport
       parentRoute: typeof PanelRoute
     }
-    '/panel/services': {
-      id: '/panel/services'
-      path: '/services'
-      fullPath: '/panel/services'
-      preLoaderRoute: typeof PanelServicesRouteImport
+    '/panel/uslugi': {
+      id: '/panel/uslugi'
+      path: '/uslugi'
+      fullPath: '/panel/uslugi'
+      preLoaderRoute: typeof PanelUslugiRouteImport
       parentRoute: typeof PanelRoute
     }
-    '/panel/profile': {
-      id: '/panel/profile'
-      path: '/profile'
-      fullPath: '/panel/profile'
-      preLoaderRoute: typeof PanelProfileRouteImport
+    '/panel/profil': {
+      id: '/panel/profil'
+      path: '/profil'
+      fullPath: '/panel/profil'
+      preLoaderRoute: typeof PanelProfilRouteImport
       parentRoute: typeof PanelRoute
     }
-    '/panel/calendar': {
-      id: '/panel/calendar'
-      path: '/calendar'
-      fullPath: '/panel/calendar'
-      preLoaderRoute: typeof PanelCalendarRouteImport
+    '/panel/kalendarz': {
+      id: '/panel/kalendarz'
+      path: '/kalendarz'
+      fullPath: '/panel/kalendarz'
+      preLoaderRoute: typeof PanelKalendarzRouteImport
       parentRoute: typeof PanelRoute
     }
   }
 }
 
 interface PanelRouteChildren {
-  PanelCalendarRoute: typeof PanelCalendarRoute
-  PanelProfileRoute: typeof PanelProfileRoute
-  PanelServicesRoute: typeof PanelServicesRoute
-  PanelSettingsRoute: typeof PanelSettingsRoute
+  PanelKalendarzRoute: typeof PanelKalendarzRoute
+  PanelProfilRoute: typeof PanelProfilRoute
+  PanelUslugiRoute: typeof PanelUslugiRoute
+  PanelUstawieniaRoute: typeof PanelUstawieniaRoute
 }
 
 const PanelRouteChildren: PanelRouteChildren = {
-  PanelCalendarRoute: PanelCalendarRoute,
-  PanelProfileRoute: PanelProfileRoute,
-  PanelServicesRoute: PanelServicesRoute,
-  PanelSettingsRoute: PanelSettingsRoute,
+  PanelKalendarzRoute: PanelKalendarzRoute,
+  PanelProfilRoute: PanelProfilRoute,
+  PanelUslugiRoute: PanelUslugiRoute,
+  PanelUstawieniaRoute: PanelUstawieniaRoute,
 }
 
 const PanelRouteWithChildren = PanelRoute._addFileChildren(PanelRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  LoginRoute: LoginRoute,
+  LogowanieRoute: LogowanieRoute,
   PanelRoute: PanelRouteWithChildren,
 }
 export const routeTree = rootRouteImport
