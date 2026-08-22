@@ -55,7 +55,7 @@ export default function Nav() {
 
   return (
     <div
-      className={`bg-gray-50 h-dvh relative shadow-md flex flex-col overflow-hidden transition-all duration-300
+      className={`bg-gray-50 h-full relative shadow-md flex flex-col overflow-hidden transition-all duration-300
       ${isOpen ? 'w-88' : 'w-18' }
       `}
     >
@@ -110,7 +110,7 @@ export default function Nav() {
               <div
                 ref={menuRef}
                 onClick={logout}
-                className={`absolute right-3 font-semibold -top-11 text-sm border border-(--main-color) box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
+                className={`absolute right-3 font-semibold -top-11 text-sm text-gray-500! border border-gray-400 box-border px-4 py-2.5 cursor-pointer rounded-sm transition-all duration-100 
                 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}
               >
                 WYLOGUJ
