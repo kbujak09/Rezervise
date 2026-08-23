@@ -1,7 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
 
-import Nav from "./Nav.tsx";
-import Header from "./Header.tsx";
+import Nav from "./components/Nav.tsx";
+import Header from "./components/Header.tsx";
 
 export default function Panel() {
   return (

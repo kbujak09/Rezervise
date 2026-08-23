@@ -2,7 +2,7 @@ import {useState} from "react";
 import { useNavigate, useRouter } from "@tanstack/react-router";
 
 import Input from "./Input.tsx";
-import { useAuth } from "../hooks/useAuth.ts";
+import { useAuth } from "../../../hooks/useAuth.ts";
 
 export default function AuthForm() {
   const navigate = useNavigate();

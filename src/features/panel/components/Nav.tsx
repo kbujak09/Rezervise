@@ -2,17 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { ScaleLoader } from "react-spinners";
 
-import defaultImage from '../assets/Nav/avatar-placeholder.png';
-import threeDots from '../assets/Nav/more.svg';
-import arrowBack from '../assets/Nav/arrow-back.svg'
+import defaultImage from '../../../assets/Nav/avatar-placeholder.png';
+import threeDots from '../../../assets/Nav/more.svg';
+import arrowBack from '../../../assets/Nav/arrow-back.svg'
 
-import calendarIcon from '../assets/Nav/calendar.svg';
-import servicesIcon from '../assets/Nav/services.svg';
-import settingsIcon from '../assets/Nav/settings.svg';
+import calendarIcon from '../../../assets/Nav/calendar.svg';
+import servicesIcon from '../../../assets/Nav/services.svg';
+import settingsIcon from '../../../assets/Nav/settings.svg';
 
 import NavItem from "./NavItem.tsx";
-import useUser from "../hooks/useUser.ts";
-import { supabase } from "../lib/supabase.ts";
+import useUser from "../../../hooks/useUser.ts";
+import { supabase } from "../../../lib/supabase.ts";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState<boolean>(() => {

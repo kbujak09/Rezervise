@@ -1,5 +1,6 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
-import AuthForm from '../components/AuthForm.tsx';
+
+import Auth from '../features/auth/Auth.tsx';
 
 export const Route = createFileRoute('/logowanie')({
   beforeLoad: ({ context }) => {
@@ -9,13 +10,5 @@ export const Route = createFileRoute('/logowanie')({
       })
     }
   },
-  component: LoginPage
+  component: Auth
 });
-
-function LoginPage() {
-  return (
-    <div className='h-dvh flex justify-center items-center'>
-      <AuthForm/>
-    </div>
-  )
-}
