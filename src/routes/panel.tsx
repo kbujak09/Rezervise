@@ -1,6 +1,6 @@
-import { createFileRoute, redirect } from '@tanstack/react-router'
-
-import Panel from '../features/panel/Panel.tsx';
+import { createFileRoute, redirect, Outlet } from '@tanstack/react-router'
+import Nav from '../components/layouts/panel/Nav';
+import Header from '../components/layouts/panel/Header';
 
 export const Route = createFileRoute('/panel')({
   beforeLoad: ({ context }) => {
@@ -10,5 +10,19 @@ export const Route = createFileRoute('/panel')({
       })
     }
   },
-  component: Panel
+  component: PanelLayout
 })
+
+function PanelLayout() {
+  return (
+    <div className='flex bg-[#e9e9e9] w-full h-dvh'>
+      <Nav/>
+      <div className='flex flex-col w-full'>
+        <Header/>
+        <div className='m-4'>
+          <Outlet/>
+        </div>
+      </div>
+    </div>
+  )
+}

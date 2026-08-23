@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { useNavigate, useRouter } from "@tanstack/react-router";
 
-import Input from "./Input.tsx";
+import Input from "../../../components/ui/Input.tsx";
 import { useAuth } from "../../../hooks/useAuth.ts";
 
 export default function AuthForm() {

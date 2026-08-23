@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import { routeTree } from './routeTree.gen';
 import { supabase } from "./lib/supabase.ts";
-import Loading from './components/Loading.tsx';
+import Loading from './components/layouts/Loading.tsx';
 
 const router = createRouter({ routeTree, context: { isAuthenticated: false } });
 

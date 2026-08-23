@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import Profile from '../../features/panel/components/Profile.tsx';
+import Profile from '../../features/profile/Profile.tsx';
 
 export const Route = createFileRoute('/panel/profil')({
   staticData: {
