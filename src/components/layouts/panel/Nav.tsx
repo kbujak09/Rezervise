@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { ScaleLoader } from "react-spinners";
 
-import defaultImage from '../../../assets/Nav/avatar-placeholder.png';
+import defaultImage from '../../../assets/Nav/avatar-placeholder.jpg';
 import threeDots from '../../../assets/Nav/more.svg';
 import arrowBack from '../../../assets/Nav/arrow-back.svg'
 
@@ -30,7 +30,7 @@ export default function Nav() {
 
   const logout = async () => {
     await supabase.auth.signOut();
-    return navigate({ to: '/login' });
+    return navigate({ to: '/logowanie' });
   }
 
   useEffect(() => {
@@ -55,11 +55,11 @@ export default function Nav() {
 
   return (
     <div
-      className={`bg-gray-50 h-full relative shadow-md flex flex-col overflow-hidden transition-all duration-300
-      ${isOpen ? 'w-88' : 'w-18' }
+      className={`bg-white h-full relative shadow-lg flex flex-col overflow-hidden transition-all duration-300
+      ${isOpen ? 'w-88' : 'w-19.5' }
       `}
     >
-      <div className={`pb-12 pt-6 w-full flex justify-center`}>
+      <div className={`pb-20 pt-6 w-full flex justify-center`}>
         <div
           className={`${isOpen ? 'w-full': 'w-0 transition-all duration-300'}`}
         ></div>
@@ -90,7 +90,7 @@ export default function Nav() {
             <img
               alt='zdjęcie profilowe'
               src={defaultImage}
-              className='w-10 shrink-0 rounded-full filter-(--main-svg-filter) cursor-pointer box-border border-transparent border'
+              className='w-10 shrink-0 rounded-full cursor-pointer box-border'
             />
           </Link>
           <div className={`flex h-full overflow-hidden transition-all duration-300

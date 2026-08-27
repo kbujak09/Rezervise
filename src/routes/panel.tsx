@@ -19,7 +19,7 @@ function PanelLayout() {
       <Nav/>
       <div className='flex flex-col w-full'>
         <Header/>
-        <div className='m-4'>
+        <div className='flex flex-col m-4 h-full'>
           <Outlet/>
         </div>
       </div>

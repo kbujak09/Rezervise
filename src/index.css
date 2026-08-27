@@ -24,3 +24,35 @@ body, #root {
     width: 100%;
     height: 100dvh;
 }
+
+@layer components {
+    .profile-data-container {
+        @apply grid gap-2.5 mb-7;
+    }
+
+    .profile-data-label {
+        @apply text-[17px] tracking-wide pl-5;
+    }
+
+    .profile-data-container:has(.profile-data-input:focus) .profile-data-label {
+        @apply text-(--active-color)!;
+    }
+
+    .profile-data-input {
+        @apply w-84 border border-gray-400 px-5 py-3 rounded-md tracking-wide;
+    }
+
+    .profile-data-input:focus {
+        @apply border border-(--active-color) outline-0
+    }
+
+    .profile-data-input:focus::placeholder {
+        @apply text-transparent;
+    }
+}
+
+.remove-arrows {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

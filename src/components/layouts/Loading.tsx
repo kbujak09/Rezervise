@@ -1,8 +1,8 @@
 import { ClipLoader } from "react-spinners";
 
-export default function Loading() {
+export default function Loading({fullSize}: {fullSize: boolean}) {
   return (
-    <div className='flex w-full h-dvh justify-center items-center'>
+    <div className={`flex justify-center items-center ${fullSize ? 'w-full h-dvh' : 'w-full h-full'}`}>
       <ClipLoader size='50'/>
     </div>
   )
