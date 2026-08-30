@@ -28,18 +28,18 @@ export default function ProfilePictureEditor() {
             className={'w-full h-full object-cover rounded-full'}
           />
         </div>
-        <div className='grid grid-cols-2 gap-4 text-sm font-semibold'>
+        <div className='flex justify-center text-sm font-semibold'>
           {
             !file ?
               <label
                 htmlFor='avatar-upload'
-                className='border border-(--active-color) text-(--active-color)! cursor-pointer px-1 py-2 rounded-sm inline-block'
+                className='border border-(--active-color) text-(--active-color)! cursor-pointer px-5 py-2 rounded-sm inline-block'
               >
                 Wybierz plik
               </label>
               :
               <button
-                className='px-1 py-2 border rounded-sm border-gray-500 bg-gray-200 text-black! cursor-pointer'
+                className='px-5 py-2 border rounded-sm border-gray-500 bg-gray-200 text-black! cursor-pointer'
                 onClick={removeFile}
               >
               Odrzuć zmiany
@@ -52,11 +52,6 @@ export default function ProfilePictureEditor() {
             accept='.png, .jpg, .jpeg, .webp'
             onChange={handleFileChange}
           />
-          <button
-            className={`px-1 py-2 border rounded-sm ${file ? 'cursor-pointer border-(--active-color) bg-(--active-color) text-gray-100!' : 'bg-gray-200 opacity-70'}`}
-          >
-            Zapisz zmiany
-          </button>
         </div>
       </div>
     </div>

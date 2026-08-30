@@ -1,0 +1,1 @@
+export type DayOfTheWeekType = 'Poniedziałek' | 'Wtorek' | 'Środa' | 'Czwartek' | 'Piątek' | 'Sobota' | 'Niedziela';
