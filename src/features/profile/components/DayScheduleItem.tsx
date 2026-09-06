@@ -1,17 +1,94 @@
+import { useState } from "react";
+
+import { Switch } from '@/components/ui/switch.tsx';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select.tsx';
+
 import type { DayOfTheWeekType } from "../types.ts";
 
+const hoursData = [
+  '00:00',
+  '01:00',
+  '02:00',
+  '03:00',
+  '04:00',
+  '05:00',
+  '06:00',
+  '07:00',
+  '08:00',
+  '09:00',
+  '10:00',
+  '11:00',
+  '12:00',
+  '13:00',
+  '14:00',
+  '15:00',
+  '16:00',
+  '17:00',
+  '18:00',
+  '19:00',
+  '20:00',
+  '21:00',
+  '22:00',
+  '23:00',
+]
+
 interface Props {
-  dayOfTheWeek: DayOfTheWeekType
+  dayOfTheWeek: DayOfTheWeekType,
+  isChecked: boolean,
+  setIsChecked: (isChecked: boolean) => void;
 }
 
-export default function DayScheduleItem({ dayOfTheWeek }: Props) {
+export default function DayScheduleItem({ dayOfTheWeek, isChecked, setIsChecked }: Props) {
+  const [hours, setHours] = useState(hoursData);
+
   return (
-    <div className='w-3xl p-4 h-full flex items-center border border-gray-200'>
-      <div className='tracking-wide font-semibold'>
+    <div className='grid grid-cols-[12rem_1fr_12rem] py-3.5'>
+      <div className={`tracking-wide w-full italic ${!isChecked && 'text-gray-300'}`}>
         {dayOfTheWeek}
       </div>
-      <div>
-
+      <div className='flex gap-4 mx-8'>
+        <div>
+          <Select defaultValue={'06:00'} disabled={!isChecked}>
+            <SelectTrigger className='w-36 cursor-pointer'>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className='max-h-48 overflow-y-auto' side='bottom' alignItemWithTrigger={false}>
+              <SelectGroup>
+                {
+                  hours.map((item) =>
+                    <SelectItem className='cursor-pointer' value={item}>{item}</SelectItem>
+                  )
+                }
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Select defaultValue={'14:00'} disabled={!isChecked}>
+            <SelectTrigger className='w-36 cursor-pointer'>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className='max-h-48 overflow-y-auto' side='bottom' alignItemWithTrigger={false}>
+              <SelectGroup>
+                {
+                  hours.map((item) =>
+                    <SelectItem className='cursor-pointer' value={item}>{item}</SelectItem>
+                  )
+                }
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+      <div className='flex items-center cursor-pointer justify-self-end'>
+        <Switch checked={isChecked} onCheckedChange={setIsChecked}/>
       </div>
     </div>
   )

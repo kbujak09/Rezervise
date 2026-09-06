@@ -16,10 +16,12 @@ export default function Profile() {
   }
 
   return (
-    <div className='w-fit flex bg-white rounded-sm shadow-sm box-border p-5'>
-      <ProfilePictureEditor/>
-      <ProfileInformation user={user}/>
-      <WeeklySchedule/>
-    </div>
+    <>
+      <div className='w-fit flex flex-wrap bg-white rounded-sm shadow-sm box-border p-5 pb-12'>
+        <ProfilePictureEditor/>
+        <ProfileInformation user={user}/>
+        <WeeklySchedule/>
+      </div>
+    </>
   )
 }

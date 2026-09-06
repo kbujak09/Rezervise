@@ -21,7 +21,7 @@ export default function ProfilePictureEditor() {
   return (
     <div className='w-fit py-5 px-7 box-border relative min-w-0'>
       <div className='text-center w-full box-border'>
-        <div className='relative w-72 h-72 border-2 p-0.5 border-(--active-color) mb-5 overflow-hidden rounded-full'>
+        <div className='relative w-56 h-56 border-2 p-0.5 border-(--active-color) mb-5 overflow-hidden rounded-full'>
           <img
             alt='zdjęcie profilowe'
             src={ file ? `${URL.createObjectURL(file)}` : defaultAvatar }
@@ -33,7 +33,7 @@ export default function ProfilePictureEditor() {
             !file ?
               <label
                 htmlFor='avatar-upload'
-                className='border border-(--active-color) text-(--active-color)! cursor-pointer px-5 py-2 rounded-sm inline-block'
+                className='border border-(--active-color) text-(--active-color)! cursor-pointer px-4 py-1.5 rounded-sm inline-block'
               >
                 Wybierz plik
               </label>
